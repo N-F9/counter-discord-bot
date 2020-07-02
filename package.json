@@ -1,0 +1,25 @@
+{
+  "name": "counter-discord-bot",
+  "version": "1.0.0",
+  "description": "A counter discord bot",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "discord.js": "^12.2.0",
+    "lowdb": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N-F9/counter-discord-bot.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/N-F9/counter-discord-bot/issues"
+  },
+  "homepage": "https://github.com/N-F9/counter-discord-bot#readme"
+}
