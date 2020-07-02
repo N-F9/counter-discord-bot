@@ -15,7 +15,7 @@ module.exports = {
     if (db.get("guilds").find({ guildId: message.guild.id }).value() == undefined) {
       embed({"title": "Setup", "description": "Counter bot has been successfully setup!", "color": 0x00FF00}, message.channel)
       message.guild.channels.create("counting", "text").then(createdChannel => {
-        db.get("guilds").push({ guildId: message.guild.id, suffix: "-", count: 0, counterChannelId: createdChannel.id }).write()
+        db.get("guilds").push({ guildId: message.guild.id, count: 0, counterChannelId: createdChannel.id }).write()
       })
     } else {
       error("Server has already been setup!", message.channel)
