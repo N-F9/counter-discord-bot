@@ -1,11 +1,10 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const id = require('./id.json')
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
 const fs = require('fs');
 const { log, } = require('./utils/utils')
-const { brotliDecompress } = require('zlib')
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 

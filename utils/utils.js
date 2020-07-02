@@ -2,7 +2,8 @@ const { blue, gray, white } = require('chalk')
 
 const utils = {
   log: message => console.log(`${blue(`Counter Bot`)} ${gray(`»`)} ${white(message)}`),
-  embed: (embed, channel) => channel.send({ embed: embed })
+  embed: (embed, channel) => channel.send({ embed: embed }),
+  error: (code, channel) => this.embed({"title": `Error`, "description": `Error: ${code}`, "color": 0xff0033}, channel)
 }
 
 module.exports = utils
