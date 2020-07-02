@@ -1,3 +1,10 @@
 {
-  "guilds": []
+  "guilds": [
+    {
+      "guildId": "728269506710995034",
+      "suffix": "-",
+      "count": 0,
+      "counterChannelId": "728335539094159420"
+    }
+  ]
 }
