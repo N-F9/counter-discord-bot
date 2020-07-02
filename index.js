@@ -13,9 +13,9 @@ const db = low(adapter)
 db.defaults({ guilds: [] })
   .write()
 
-// db.get('guilds')
-//   .remove()
-//   .write()
+db.get('guilds')
+  .remove()
+  .write()
 
 // Gets the commands
 
@@ -38,10 +38,6 @@ client.once('ready', () => {
 
 client.on('message', message => {
   let prefix = "-"
-  if (db.get("guilds").find({ guildId: message.guild.id }).value() != undefined) {
-    const data = db.get("guilds").find({ guildId: message.guild.id }).value()
-    prefix = data.suffix
-  }
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).split(/ +/);

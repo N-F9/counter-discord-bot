@@ -13,6 +13,12 @@ module.exports = {
     if (!message.member.hasPermission('ADMINISTRATOR')) {
       error("Insufficient Permissions, the guild owner is the only one that can run this command!", message.channel)
       return
+    } else {
+      embed({"title": "Reset", "description": "The Counter has been reset!", "color": 0x00FF00}, message.channel)
+      db.get('guilds')
+        .find({ guildId: message.guild.id })
+        .update('count', n => n - n)
+        .write()
     }
 	},
 }
