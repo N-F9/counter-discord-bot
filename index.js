@@ -52,15 +52,14 @@ client.on('message', message => {
   }
 
   // Counter
-  let data = db.get("guilds").find({ guildId: message.guild.id }).value()
-	if (message.channel.id == db.get('guilds').find({ guildId: message.guild.id }).value()) {
-    if (message.content == db.get('guilds').find({ guildId: message.guild.id }).value()) {
+	if (message.channel.id == db.get('guilds').find({ guildId: message.guild.id }).value().counterChannelId) {
+    if (message.content == db.get('guilds').find({ guildId: message.guild.id }).value().count) {
       db.get('guilds')
         .find({ guildId: message.guild.id })
         .update('count', n => n + 1)
         .write()
     }
-    message.channel.setTopic(`Current Number: ${db.get('guilds').find({ guildId: message.guild.id }).value()}`)
+    message.channel.setTopic(`Current Number: ${db.get('guilds').find({ guildId: message.guild.id }).value().count}`)
   }
 })
 
