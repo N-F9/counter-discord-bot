@@ -8,23 +8,16 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
-const prefix = '-' // TEMP
-
-// ? | Sets up the Database
+// Sets up the Database
 
 db.defaults({ guilds: [] })
   .write()
 
-  /*
-    {
-      "guildId": "",
-      "suffix": "-",
-      "adminRole": "admin",
-      "count": 0  
-    }
-  */
+// db.get('guilds')
+//   .remove()
+//   .write()
 
-// ? | Gets the commands
+// Gets the commands
 
 client.commands = new Discord.Collection();
 
@@ -35,15 +28,20 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-// ? | Loads the bot
+// Loads the bot
 
 client.once('ready', () => {
 	log('Ready!')
 })
 
-// ? | Listens for messages
+// Listens for messages
 
 client.on('message', message => {
+  let prefix = "-"
+  if (db.get("guilds").find({ guildId: message.guild.id }).value() != undefined) {
+    const data = db.get("guilds").find({ guildId: message.guild.id }).value()
+    prefix = data.suffix
+  }
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
@@ -57,5 +55,3 @@ client.on('message', message => {
 })
 
 client.login(id.token)
-
-// embed({title: 'Pong.'}, message.channel);
