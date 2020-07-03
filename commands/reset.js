@@ -12,7 +12,7 @@ module.exports = {
       error("Insufficient Permissions, you must have adminustrator role in order to run this command!", message.channel)
       return
     } else {
-      embed({"title": "Reset", "description": "The Counter has been reset!", "color": 0x00FF00}, message.channel)
+      embed({"title": "Reset", "description": "The Counter has been reset to 1!", "color": 0x00FF00}, message.channel)
       db.read()
       db.get('guilds')
         .find({ guildId: message.guild.id })

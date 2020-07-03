@@ -8,12 +8,12 @@ module.exports = {
       "title": "Help",
       "fields": [
         {
-          "name": "General",
-          "value": "\`GitHub\` [Repo](https://github.com/N-F9/counter-discord-bot)\n\`Author\` [Nick Ferguson](https://github.com/N-F9)"
+          "name": "🍕 | General",
+          "value": "\`GitHub\` **|** [Repo](https://github.com/N-F9/counter-discord-bot)\n\`Author\` **|** [Nick Ferguson](https://github.com/N-F9)"
         },
         {
-          "name": "Commands",
-          "value": "\`-reset\` To reset the server's counter \n\`-setup\` To setup the bot\n\`-help\` For the help command"
+          "name": "🥓 | Commands",
+          "value": "\`-reset\` **|** To reset the server's counter \n\`-setup\` **|** To setup the bot\n\`-help\` **|** For the help command"
         }
       ],
       "color": 0x00FF00
