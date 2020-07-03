@@ -16,7 +16,7 @@ Also include a token.json file with the following contents
   "token": "<token id>" 
 }
 ```
-Open up a terminal and run `npm i`  
+Open a cmd and run `npm i`
 Then start the bot with `start.bat`
 
 ---

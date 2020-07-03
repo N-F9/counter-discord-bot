@@ -16,7 +16,7 @@ module.exports = {
           "value": "\`-reset\` **|** To reset the server's counter \n\`-setup\` **|** To setup the bot\n\`-help\` **|** For the help command"
         }
       ],
-      "color": 0x00FF00
+      "color": 0x3498db
     }, message.channel)
 	},
 }
