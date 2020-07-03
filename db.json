@@ -1,3 +1,10 @@
 {
-  "guilds": []
+  "guilds": [
+    {
+      "guildId": "728269506710995034",
+      "count": 9,
+      "counterChannelId": "728615111199293470",
+      "lastMessagerId": "299672434041421825"
+    }
+  ]
 }

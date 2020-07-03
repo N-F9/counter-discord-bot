@@ -13,10 +13,6 @@ const db = low(adapter)
 db.defaults({ guilds: [] })
   .write()
 
-// db.get('guilds')
-//   .remove()
-//   .write()
-
 // Gets the commands
 
 client.commands = new Discord.Collection();
@@ -31,7 +27,7 @@ for (const file of commandFiles) {
 // Loads the bot
 
 client.once('ready', () => {
-	log('Ready!')
+	log('Loaded Successfully')
 })
 
 // Listens for messages

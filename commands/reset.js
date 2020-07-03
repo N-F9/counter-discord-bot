@@ -13,9 +13,11 @@ module.exports = {
       return
     } else {
       embed({"title": "Reset", "description": "The Counter has been reset!", "color": 0x00FF00}, message.channel)
+      db.read()
       db.get('guilds')
         .find({ guildId: message.guild.id })
-        .update('count', n => n - n)
+        .update('count', n => n = 1)
+        .update('lastMessagerId', n => n = "")
         .write()
     }
 	},
