@@ -7,6 +7,7 @@ const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
+const { blue, gray, white, bold   } = require('chalk')
 
 // Sets up the Database
 
@@ -27,13 +28,21 @@ for (const file of commandFiles) {
 // Loads the bot
 
 client.once('ready', () => {
-	log('Loaded Successfully')
+  console.log("\n")
+  console.log(gray(bold("────────────────────────────────────────────────────────────────────────\n")))
+
+  log('Loaded Successfully')
+  log('Repo: https://github.com/N-F9/counter-discord-bot \n')
+
+  console.log(gray(bold("────────────────────────────────────────────────────────────────────────\n")))
 })
 
 // Listens for messages
 
 client.on('message', message => {
+
   // Commands
+
   let prefix = "-"
 	if (message.content.startsWith(prefix) || message.author.bot) {
     const args = message.content.slice(prefix.length).split(/ +/)

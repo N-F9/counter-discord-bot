@@ -8,11 +8,11 @@ module.exports = {
       "title": "Help",
       "fields": [
         {
-          "name": "🍕 | General",
+          "name": "🎉 General",
           "value": "\`GitHub\` **|** [Repo](https://github.com/N-F9/counter-discord-bot)\n\`Author\` **|** [Nick Ferguson](https://github.com/N-F9)"
         },
         {
-          "name": "🥓 | Commands",
+          "name": "💻 Commands",
           "value": "\`-reset\` **|** To reset the server's counter \n\`-setup\` **|** To setup the bot\n\`-help\` **|** For the help command"
         }
       ],
