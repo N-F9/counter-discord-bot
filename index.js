@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 const id = require('./id.json')
 const fs = require('fs');
-const { log, } = require('./utils/utils')
+const { log, error } = require('./utils/utils')
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
@@ -52,14 +52,34 @@ client.on('message', message => {
   }
 
   // Counter
-	if (message.channel.id == db.get('guilds').find({ guildId: message.guild.id }).value().counterChannelId) {
-    if (message.content == db.get('guilds').find({ guildId: message.guild.id }).value().count) {
+
+  db.read()
+
+  const data = db.get('guilds').find({ guildId: message.guild.id }).value()
+
+	if (message.channel.id == data.counterChannelId) {
+    if (message.author.id == data.lastMessagerId) {
+      message.delete({ timeout: 1000 })
+      error('You can\'t count twice!', message.channel)
+        .then(msg => {
+          msg.delete({ timeout: 5000 })
+        })
+        .catch()
+    } else if (message.content == data.count) {
       db.get('guilds')
         .find({ guildId: message.guild.id })
         .update('count', n => n + 1)
+        .update('lastMessagerId', n => n = message.author.id)
         .write()
+    } else {
+      message.delete({ timeout: 1000 })
+      error('You can only put numbers!', message.channel)
+        .then(msg => {
+          msg.delete({ timeout: 5000 })
+        })
+        .catch()
     }
-    message.channel.setTopic(`Current Number: ${db.get('guilds').find({ guildId: message.guild.id }).value().count}`)
+    return
   }
 })
 

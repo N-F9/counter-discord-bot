@@ -9,7 +9,7 @@ module.exports = {
 	description: 'Resets the counter',
 	execute(message, args) {
     if (!message.member.hasPermission('ADMINISTRATOR')) {
-      error("Insufficient Permissions, the guild owner is the only one that can run this command!", message.channel)
+      error("Insufficient Permissions, you must have adminustrator role in order to run this command!", message.channel)
       return
     } else {
       embed({"title": "Reset", "description": "The Counter has been reset!", "color": 0x00FF00}, message.channel)

@@ -13,10 +13,10 @@ module.exports = {
       return
     }
     if (db.get("guilds").find({ guildId: message.guild.id }).value() == undefined) {
-      embed({"title": "Setup", "description": "Counter bot has been successfully setup!", "color": 0x00FF00}, message.channel)
+      embed({"title": "Setup", "description": "Counter bot has been successfully setup! The counter starts at one", "color": 0x00FF00}, message.channel)
       message.guild.channels.create("counting", "text").then(createdChannel => {
-        db.get("guilds").push({ guildId: message.guild.id, count: 0, counterChannelId: createdChannel.id }).write()
-        createdChannel.setTopic(`Current Number: ${db.get('guilds').find({ guildId: message.guild.id }).value().count}`)
+        db.get("guilds").push({ guildId: message.guild.id, count: 1, counterChannelId: createdChannel.id, lastMessagerId: "" }).write()
+        createdChannel.setTopic("Start counting!")
       })
     } else {
       error("Server has already been setup!", message.channel)
