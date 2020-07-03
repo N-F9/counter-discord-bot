@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
-const id = require('./id.json')
+const { token } = require('./token.json')
 const fs = require('fs');
 const { log, error } = require('./utils/utils')
 const low = require('lowdb')
@@ -79,4 +79,4 @@ client.on('message', message => {
   }
 })
 
-client.login(id.token)
+client.login(token)
