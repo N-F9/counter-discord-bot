@@ -6,9 +6,9 @@ A counter discord bot
 
 ### Usage
 
-`-help` Sends the help menu
-`-reset` Resets the counter
-`-setup` Sets up the channel
+`-help` Sends the help menu  
+`-reset` Resets the counter  
+`-setup` Sets up the channel  
 
 ---
 
